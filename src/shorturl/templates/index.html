@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shrunk</title>
+    <meta name="description" content="Shrunk is a url shortener to reduce a long link. Use our tool to shorten links and then share them.">
+    <meta name="viewport" content="user-scalable=no">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Shrunk/css/main.css' %}">
+    <link rel="icon" href="{% static 'Shrunk/icon.png' %}">
+    <link rel="stylesheet" href="{% static 'Shrunk/css/fontawesome.min.css' %}">
+  </head>
+  <body>
+    <header>
+      <h1>Shrunk - the easiest way to short your URL</h1>
+    </header>
+    <main>
+      <form action="" method="post" class="form" id="Shrunk">{% csrf_token %}
+        <label for="url"></label>
+        <input type="text" name="url" id="url" class="input" placeholder="Paste here">
+        
+        <button type="submit" class="create" id="create">Shrunk</button>
+      </form>
+      <div class="tooltip" data-tooltip-text="Click to copy" id="tooltip">
+        <div class="res {% if error %} error {% endif %}" id="short_url_box">
+          {% if error %}
+          <div class="title">This redirect Link is invalid</div>
+          <div class="message">{{error}}</div>
+          {% endif %}</div>
+      </div>
+    </main>
+    <footer>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/shuna_322/"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="https://t.me/ShunA_322"><i class="fab fa-telegram-plane"></i></a>
+        </li>
+        <li>
+          <a href="https://github.com/Shuna322"><i class="fab fa-github"></i></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/oleksandr-pokydko-13b9a1174/"><i class="fab fa-linkedin-in"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/shuna_322"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="mailto:o.pokydko@gmail.com"><i class="far fa-envelope"></i></a>
+        </li>
+      </ul>
+    </footer>
+    <div id="tsparticles" class="background"></div>
+    <script src="{% static 'Shrunk/scripts/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'Shrunk/scripts/main.js' %}"></script>
+    <script src="{% static 'Shrunk/scripts/tsparticles.min.js' %}"></script>
+
+  </body>
+</html>
